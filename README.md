@@ -21,7 +21,7 @@ This project is a simple To-Do List web application designed to help users manag
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/nishanthini09/todo-list.git
+   git clone https://github.com/Nishanthini09/To-Do-List-Using-HTML-CSS-and-JS.git
    ```
 
 2. **Navigate to the project directory**:
