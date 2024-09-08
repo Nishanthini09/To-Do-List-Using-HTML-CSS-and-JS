@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="header-text">✨ Life is more than One Big To Do List..Keep Going!! 🌟</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-3">
+        <h2>Start Your To-Do List</h2>
+
+        <label id="lblsuccess" class="text-success" style="display: none;"></label>
+
+        <form id="addForm">
+            <div class="row">
+                <!-- Task description input - compulsory -->
+                <div class="col-lg-6">
+                    <input type="text" onkeyup="toggleButton(this, 'submit')" class="form-control" id="item" placeholder="Enter task here..." required>
+                </div>
+
+                <!-- Category and Due date - optional, horizontally aligned -->
+                <div class="col-lg-6 d-flex">
+                    <select class="form-control mr-2" id="category">
+                        <option value="Personal">Personal</option>
+                        <option value="Important">Important</option>
+                        <option value="Very Urgent">Very Urgent</option>
+                    </select>
+                    <input type="date" class="form-control" id="dueDate" placeholder="Set due date (optional)">
+                </div>
+
+                <div class="col-lg-12 mt-2">
+                    <input type="submit" class="btn btn-dark" id="submit" value="Submit" disabled>
+                </div>
+            </div>
+        </form>
+
+        <!-- Adding margin-bottom to create gap between the form and task list -->
+        <div class="mt-3">
+            <h2 class="mt-4">Tasks</h2>
+            <ul class="list-group" id="items"></ul>
+        </div>
+    </div>
+
+    <!-- Congratulatory message that will be animated on task completion -->
+    <div id="congratsMessage" class="congrats-message">
+        <span>🎉 Congratulations on completing a task! 🎉</span>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
