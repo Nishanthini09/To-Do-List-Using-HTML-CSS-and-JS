@@ -4,11 +4,9 @@ function addItem(e) {
     e.preventDefault();
 
     const itemInput = document.getElementById("item");
-    const categoryInput = document.getElementById("category");
     const dueDateInput = document.getElementById("dueDate");
 
     const taskText = itemInput.value.trim();
-    const categoryText = categoryInput.value;
     const dueDateText = dueDateInput.value;
 
     // Ensure the task text is provided
@@ -25,11 +23,6 @@ function addItem(e) {
 
     // Construct the task information
     let taskInfo = `<strong>Task:</strong> ${taskText}`;
-
-    // Include category only if selected
-    if (categoryText) {
-        taskInfo += ` <br> <strong>Category:</strong> ${categoryText}`;
-    }
 
     // Include due date only if set
     if (dueDateText) {
@@ -54,31 +47,6 @@ function addItem(e) {
         }, 4000);
     });
 
-    // Create the edit button
-    const editButton = document.createElement("button");
-    editButton.className = "btn btn-info btn-sm float-right";
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", () => {
-        const updatedTask = prompt("Edit Task", taskText);
-        const updatedCategory = prompt("Edit Category", categoryText);
-        const updatedDueDate = prompt("Edit Due Date", dueDateText);
-
-        if (updatedTask && updatedTask.trim() !== "") {
-            taskInfo = `<strong>Task:</strong> ${updatedTask.trim()}`;
-
-            // Update the category and due date
-            if (updatedCategory) taskInfo += ` <br> <strong>Category:</strong> ${updatedCategory}`;
-            if (updatedDueDate) taskInfo += ` <br> <strong>Due Date:</strong> ${updatedDueDate}`;
-
-            li.innerHTML = taskInfo;
-            li.appendChild(completeButton);
-            li.appendChild(editButton);
-            li.appendChild(deleteButton);
-        } else {
-            alert("Task description cannot be empty.");
-        }
-    });
-
     // Create the delete button
     const deleteButton = document.createElement("button");
     deleteButton.className = "btn btn-danger btn-sm float-right";
@@ -89,7 +57,6 @@ function addItem(e) {
 
     // Append buttons to the list item
     li.appendChild(completeButton);
-    li.appendChild(editButton);
     li.appendChild(deleteButton);
 
     // Append the new task to the list
@@ -97,12 +64,11 @@ function addItem(e) {
 
     // Clear the input fields
     itemInput.value = "";
-    categoryInput.value = "";
     dueDateInput.value = "";
 
     // Display success message
     const successLabel = document.getElementById("lblsuccess");
-    successLabel.textContent = "Task added successfully!";
+    successLabel.textContent = "Task added successfully!!!";
     successLabel.style.display = "block";
     setTimeout(() => {
         successLabel.style.display = "none";
